@@ -20,48 +20,46 @@ def search_by_last_name():
     if (data.sorted(name)):
         print()
 
-        triger =  True
+        triger = True
         while triger:
-            new_name=name 
+            new_name = name
             print(f"Введите:\n1 - чтобы изменить имя {name}\nq - вернуться")
 
-            user_input = input() 
-            if user_input=="1":
+            user_input = input()
+            if user_input == "1":
                 new_name = input(f"{name} -> ")
                 data.replace_name(name, new_name)
                 print("Имя успешно изменено\n")
                 name = new_name
 
                 triger = False
-            elif user_input=="q":
+            elif user_input == "q":
                 print()
                 return
-            else :
-                print ("Выберите вариант из списка")
-    print()            
-
-
-        
+            else:
+                print("Выберите вариант из списка")
+    print()
 
 
 def delete_number():
+    print()
     user_input = input("Введите номер: ")
     data.delete_by_number(user_input)
-     
-    
+    print()
+
 
 def delete_name():
-    print("Введите фамилию")
-
-    print("Удалить все номера по фамилии")      
+    print()
+    user_input = input("Введите фамилию: ")
+    data.delete_by_name(user_input)
+    print()
 
 
 operation_list = {"1": {"добавить контакт": add_phone}, "2": {
     "вывести список контактов": print_all}, "3": {"поиск по фамилии": search_by_last_name}}
 
-operation_list["4"]={"Удалить номер": delete_number}
-operation_list["5"]={"Удаление по фамилии ": delete_name}
-
+operation_list["4"] = {"Удалить номер": delete_number}
+operation_list["5"] = {"Удаление по фамилии ": delete_name}
 
 
 def run():
